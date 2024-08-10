@@ -76,11 +76,6 @@ export const heroData: Hero = {
         I'm a Davis, CA based <strong className="text-stone-100">Software Engineer</strong>, currently exploring
         opportunities to contribute in areas of software development and machine learning.
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
-      </p>
     </>
   ),
   actions: [
