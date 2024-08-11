@@ -13,7 +13,6 @@ import InstagramIcon from '../components/Icon/InstagramIcon';
 import KaggleIcon from '../components/Icon/KaggleIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import YouTubeIcon from '../components/Icon/YouTubeIcon';
-import heroImage from '../images/header-background.webp';
 import portfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import portfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import portfolioImage3 from '../images/portfolio/portfolio-3.jpg';
@@ -26,6 +25,7 @@ import portfolioImage9 from '../images/portfolio/portfolio-9.jpg';
 import portfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 import portfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
+import heroImage from '../images/tech_bg.webp';
 import testimonialImage from '../images/testimonial.webp';
 import {
   About,
@@ -273,7 +273,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     title: 'Food Waste Reduction App',
-    description: 'Django-based app to reduce food waste, utilizing AWS EC2 and RESTful APIs.',
+    description: 'Django-based app to reduce food waste, utilizing Clarifai AI and RESTful APIs.',
     url: 'https://github.com/Hung-Ta-Chen/Food-Waste-Reduction-App',
     image: portfolioImage5,
   },
@@ -382,19 +382,14 @@ export const testimonial: TestimonialSection = {
   imageSrc: testimonialImage,
   testimonials: [
     {
-      name: 'John Doe',
-      text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
+      name: '',
+      text: '',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
     },
     {
-      name: 'Jane Doe',
-      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
+      name: '',
+      text: '',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
-    },
-    {
-      name: 'Someone else',
-      text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
     },
   ],
 };
