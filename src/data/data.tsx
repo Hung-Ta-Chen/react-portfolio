@@ -14,17 +14,17 @@ import KaggleIcon from '../components/Icon/KaggleIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import YouTubeIcon from '../components/Icon/YouTubeIcon';
 import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
+import portfolioImage1 from '../images/portfolio/portfolio-1.jpg';
+import portfolioImage2 from '../images/portfolio/portfolio-2.jpg';
+import portfolioImage3 from '../images/portfolio/portfolio-3.jpg';
+import portfolioImage4 from '../images/portfolio/portfolio-4.jpg';
+import portfolioImage5 from '../images/portfolio/portfolio-5.jpg';
+import portfolioImage6 from '../images/portfolio/portfolio-6.jpg';
+import portfolioImage7 from '../images/portfolio/portfolio-7.jpg';
+import portfolioImage8 from '../images/portfolio/portfolio-8.jpg';
+import portfolioImage9 from '../images/portfolio/portfolio-9.jpg';
+import portfolioImage10 from '../images/portfolio/portfolio-10.jpg';
+import portfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -98,16 +98,16 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `Hello! I'm Hung-Ta Chen, a recent graduate with a Master's in Statistics from UC Davis, specializing in Data Science. `+
+              `With a strong foundation in electrical and computer engineering from Taiwan, I am passionate about leveraging data to build innovative software and machine learning solutions. `+
+              `When I'm not programming, I enjoy martial arts and exploring culinary arts. I'm keen to engage in projects that challenge me and expand my horizons.`,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Location', text: 'Davis, CA', Icon: MapIcon},
+    {label: 'Age', text: '25', Icon: CalendarIcon},
+    {label: 'Nationality', text: 'Taiwan', Icon: FlagIcon},
+    {label: 'Interests', text: 'Coding, Wrestling, BJJ, Cooking', Icon: SparklesIcon},
+    {label: 'Study', text: 'UC Davis', Icon: AcademicCapIcon},
+    {label: 'Employment', text: '', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -116,70 +116,128 @@ export const aboutData: About = {
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Spoken languages',
+    name: 'Programming Languages',
     skills: [
       {
-        name: 'English',
-        level: 10,
-      },
-      {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
-      },
-    ],
-  },
-  {
-    name: 'Frontend development',
-    skills: [
-      {
-        name: 'React',
+        name: 'Python',
         level: 9,
       },
       {
-        name: 'Typescript',
+        name: 'JavaScript',
         level: 7,
       },
       {
-        name: 'GraphQL',
+        name: 'TypeScript',
+        level: 7,
+      },
+      {
+        name: 'Java',
+        level: 7,
+      },
+      {
+        name: 'C#',
         level: 6,
       },
     ],
   },
   {
-    name: 'Backend development',
+    name: 'Backend Technologies',
     skills: [
       {
-        name: 'Node.js',
-        level: 8,
+        name: 'Flask',
+        level: 7,
       },
       {
-        name: 'Rust',
+        name: 'Django',
+        level: 7,
+      },
+      {
+        name: 'FastAPI',
         level: 5,
       },
       {
-        name: 'Golang',
-        level: 4,
+        name: 'NestJS',
+        level: 7,
+      },
+      {
+        name: 'Spring Boot',
+        level: 3,
       },
     ],
   },
   {
-    name: 'Mobile development',
+    name: 'Database Management',
     skills: [
       {
-        name: 'React Native',
-        level: 9,
+        name: 'PostgreSQL',
+        level: 7,
       },
       {
-        name: 'Flutter',
+        name: 'MySQL',
+        level: 6,
+      },
+      {
+        name: 'MongoDB',
+        level: 6,
+      },
+      {
+        name: 'Redis',
+        level: 5,
+      },
+    ],
+  },
+  {
+    name: 'Frontend Technologies',
+    skills: [
+      {
+        name: 'React',
+        level: 6,
+      },
+      {
+        name: 'Redux',
         level: 4,
       },
       {
-        name: 'Swift',
-        level: 3,
+        name: 'HTML',
+        level: 7,
+      },
+      {
+        name: 'CSS',
+        level: 5,
+      },
+    ],
+  },
+  {
+    name: 'Machine Learning Frameworks',
+    skills: [
+      {
+        name: 'PyTorch',
+        level: 7,
+      },
+      {
+        name: 'Scikit-learn',
+        level: 6,
+      },
+      {
+        name: 'TensorFlow',
+        level: 6,
+      },
+    ],
+  },
+  {
+    name: 'AI & Data Science Tools',
+    skills: [
+      {
+        name: 'OpenAI API',
+        level: 7,
+      },
+      {
+        name: 'LlamaIndex',
+        level: 6,
+      },
+      {
+        name: 'LangChain',
+        level: 4,
       },
     ],
   },
@@ -190,71 +248,65 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project title 1',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage1,
+    title: 'Accessify',
+    description: 'Interactive mapping application to improve accessibility information with React, Flask, and PostgreSQL.',
+    url: 'https://github.com/Hung-Ta-Chen/Accessify', 
+    image: portfolioImage1,
   },
   {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage2,
+    title: 'UFC Playground',
+    description: 'UFC stats and predictions platform, built with React.js and Django, deployed on AWS.',
+    url: 'https://github.com/Hung-Ta-Chen/UFC-Playground',
+    image: portfolioImage2,
   },
   {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage3,
+    title: 'English Vocabulary Learning App',
+    description: 'Mobile app for learning English vocabulary using React Native with spaced repetition.',
+    url: 'https://github.com/Hung-Ta-Chen/English-Vocabulary-Learning-App',
+    image: portfolioImage3,
   },
   {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage4,
+    title: 'AI-Powered Coding Problem Classifier',
+    description: 'BERT-based model to classify coding problems, achieving a high F1 score.',
+    url: 'https://github.com/Hung-Ta-Chen/AI-Powered-Coding-Problem-Classifier',
+    image: portfolioImage4,
   },
   {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage5,
+    title: 'Food Waste Reduction App',
+    description: 'Django-based app to reduce food waste, utilizing AWS EC2 and RESTful APIs.',
+    url: 'https://github.com/Hung-Ta-Chen/Food-Waste-Reduction-App',
+    image: portfolioImage5,
   },
   {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage6,
+    title: 'Real-Time UAV Object Detection',
+    description: 'System using YOLOv5 for real-time object detection on UAVs.',
+    url: 'https://github.com/Hung-Ta-Chen/Real-Time-UAV-Object-Detection',
+    image: portfolioImage6,
   },
   {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage7,
+    title: 'Machine Translation System Using PyTorch',
+    description: 'English-Russian translation model using Transformer architecture in PyTorch.',
+    url: 'https://github.com/Hung-Ta-Chen/Machine-Translation-System-Using-PyTorch',
+    image: portfolioImage7,
   },
   {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage8,
+    title: 'Lane Following Robot',
+    description: 'Lane following robot using PyTorch for autonomous navigation.',
+    url: 'https://github.com/Hung-Ta-Chen/Lane-Following-Robot',
+    image: portfolioImage8,
   },
   {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage9,
+    title: 'Action Game Project',
+    description: 'Classic action game developed using SDL2 in C.',
+    url: 'https://github.com/Hung-Ta-Chen/Action-Game-Project',
+    image: portfolioImage9,
   },
   {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage10,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage11,
-  },
+    title: 'Job Application Counter',
+    description: 'Web app to track job applications and provide analytics using React and Node.js.',
+    url: 'https://github.com/Hung-Ta-Chen/Job-Application-Counter',
+    image: portfolioImage10,
+  }
 ];
 
 /**
@@ -262,43 +314,66 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'Sep. 2022 – Jun. 2024',
+    location: 'University of California – Davis, Davis, CA',
+    title: 'Master of Science in Statistics – Data Science Track',
+    content: (
+      <p>
+        At UC Davis, I focused on the Data Science track within the Statistics program, 
+        developing expertise in machine learning, statistical methods, and data analysis. 
+        Projects and coursework involved advanced statistical models, machine learning algorithms, 
+        and hands-on data science applications, preparing me for complex problem-solving in tech industries.
+      </p>
+    ),
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'Sep. 2019 – Jan. 2022',
+    location: 'National Chiao Tung University, Hsinchu, Taiwan',
+    title: 'Bachelor of Science in Electrical & Computer Engineering',
+    content: (
+      <p>
+        During my undergraduate studies, I immersed myself in the fundamentals of computer engineering 
+        with a strong emphasis on software development and Deep Learning. I engaged in various projects 
+        that applied programming skills and object-oriented concepts to build software and hardware solutions, 
+        furthering my passion for technology and innovation.
+      </p>
+    ),
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'May 2024 - Aug 2024',
+    location: 'Ra Labs, United States',
+    title: 'Software Engineer Intern',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        During my internship at Ra Labs, I assumed the role of principal architect for an advanced multi-agent system powered by MetaGPT and the OpenAI API, aimed at revolutionizing AI-driven analytics. I successfully integrated a retrieval-augmented generation (RAG) system using LlamaIndex, specifically tailored to empower a code generator agent with the capability to efficiently index and retrieve relevant code snippets. This significantly improved the accuracy and relevance of the generated code. Additionally, my work involved refining user interfaces with React and TypeScript, as well as developing on the Flask server.
       </p>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: 'Jul 2023 - Sep 2023',
+    location: 'LiTai Technology, Taipei, Taiwan',
+    title: 'Software Engineer Intern',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        At LiTai Technology, I engineered solutions that bridged hardware with software for sophisticated payment systems, focusing on enhancing security and processing speeds. My efforts were pivotal in developing software that streamlined and secured transaction processing, utilizing C# and .NET frameworks.
+      </p>
+    ),
+  },
+  {
+    date: 'Sep 2020 - Jan 2021',
+    location: 'National Chiao Tung University, Hsinchu, Taiwan',
+    title: 'Undergraduate Research Assistant',
+    content: (
+      <p>
+        During my experience as a undergrad research assistant, I contributed to significant advancements in virtual garment technology using deep learning techniques. My role involved developing models that greatly improved the accuracy of garment overlays in virtual environments. This project required sophisticated image processing and machine learning techniques, enhancing the outcomes and practical applications of AI in fashion technology.
       </p>
     ),
   },
 ];
+
 
 /**
  * Testimonial section
@@ -330,7 +405,7 @@ export const testimonial: TestimonialSection = {
 
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
+  description: "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out to me using the links below or directly send a message!",
   items: [
     {
       type: ContactType.Email,
