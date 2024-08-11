@@ -23,7 +23,6 @@ import portfolioImage7 from '../images/portfolio/portfolio-7.jpg';
 import portfolioImage8 from '../images/portfolio/portfolio-8.jpg';
 import portfolioImage9 from '../images/portfolio/portfolio-9.jpg';
 import portfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import portfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
 import heroImage from '../images/tech_bg.webp';
 import testimonialImage from '../images/testimonial.webp';
