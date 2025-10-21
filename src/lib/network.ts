@@ -2,7 +2,10 @@ import crypto from 'crypto';
 import type {NextApiRequest} from 'next';
 
 
-export type Geo = { country?: string; city?: string; subdivision?: string }
+export type Geo = {
+  country?: string; city?: string; subdivision?: string;
+  postal_code?: string; timezone?: string; latitude?: number; longitude?: number;
+};
 
 
 export function badEmail(e: string): boolean {
@@ -31,12 +34,22 @@ export function parseIP(req: NextApiRequest): string {
 
 export function parseGeo(req: NextApiRequest): Geo | undefined {
   const raw = req.headers['x-nf-geo'] as string | string[] | undefined;
-  let geo: Geo | undefined;
+  const str = Array.isArray(raw) ? raw[0] : raw;
+  if (typeof str !== 'string') return undefined;
 
-  if (typeof raw === 'string') {
-    try { geo = JSON.parse(raw) as Geo; } catch { return undefined; }
-  } else if (Array.isArray(raw) && typeof raw[0] === 'string') {
-    try { geo = JSON.parse(raw[0]) as Geo; } catch { return undefined; }
+  try {
+    // Netlify’s x-nf-geo header is a base64-encoded JSON blob
+    const json = JSON.parse(Buffer.from(str, 'base64').toString('utf8'));
+    return {
+      city: json.city,
+      country: json.country?.name ?? json.country?.code,
+      subdivision: json.subdivision?.name ?? json.subdivision?.code,
+      postal_code: json.postal_code,
+      timezone: json.timezone,
+      latitude: json.latitude,
+      longitude: json.longitude,
+    };
+  } catch {
+    return undefined;
   }
-  return geo;
 }

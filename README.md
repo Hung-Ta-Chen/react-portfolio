@@ -27,6 +27,9 @@ yarn dev
 # open http://localhost:3000
 ```
 
+#### Eslint
+In vscode, press `Ctrl + Shift + P`, and then select `ESLint: fix all auto-fixable Problems`.
+
 ### Prod Development 
 
 ```

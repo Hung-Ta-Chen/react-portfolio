@@ -64,7 +64,7 @@ export default async function handler(
     ip: ip,
     fp: shortFp(ip, ua),
     ua,
-    geo: geo ? {country: geo.country, city: geo.city, region: geo.subdivision} : req.headers['x-nf-geo'] as string,
+    geo: geo ? geo : req.headers['x-nf-geo'] as string,
     from: email,
     name,
   }
