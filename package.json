@@ -14,12 +14,15 @@
   "dependencies": {
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
+    "@upstash/ratelimit": "^2.0.6",
+    "@upstash/redis": "^1.35.6",
     "autoprefixer": "10.4.16",
     "classnames": "^2.3.2",
     "next": "^14.0.3",
     "nodemailer": "^6.9.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "status-code-enum": "^1.0.0",
     "ts-pattern": "^5.0.4"
   },
   "devDependencies": {
