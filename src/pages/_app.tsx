@@ -1,3 +1,5 @@
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource-variable/geist';
 import 'tailwindcss/tailwind.css';
 import '../globalStyles.scss';
 

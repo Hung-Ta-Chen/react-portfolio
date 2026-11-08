@@ -5,7 +5,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        yellow: '#efc603',
+        ink: {DEFAULT: '#101B33', soft: '#44506A'},
+        paper: '#F6F7F9',
+        gold: {DEFAULT: '#D9A441', deep: '#9A6B0C'},
+      },
+      fontFamily: {
+        display: ['"Bricolage Grotesque Variable"', 'system-ui', 'sans-serif'],
+        sans: ['"Geist Variable"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
       },
       keyframes: {
         typing: {

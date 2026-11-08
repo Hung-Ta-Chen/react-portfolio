@@ -1,57 +1,67 @@
-import {ChevronDownIcon} from '@heroicons/react/24/outline';
-import classNames from 'classnames';
+import {ArrowDownTrayIcon} from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import {FC, memo} from 'react';
 
 import {heroData, SectionId} from '../../data/data';
-import Section from '../Layout/Section';
+import profilePic from '../../images/profilepic.jpg';
+import Contours from '../Contours';
 import Socials from '../Socials';
 
 const Hero: FC = memo(() => {
-  const {imageSrc, name, description, actions} = heroData;
-
+  const {name, role, summary, actions} = heroData;
   return (
-    <Section noPadding sectionId={SectionId.Hero}>
-      <div className="relative flex h-screen w-full items-center justify-center">
-        <Image
-          alt={`${name}-image`}
-          className="absolute z-0 h-full w-full object-cover"
-          placeholder="blur"
-          priority
-          src={imageSrc}
-        />
-        <div className="z-10  max-w-screen-lg px-4 lg:px-0">
-          <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 text-center shadow-lg backdrop-blur-sm">
-            <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">{name}</h1>
-            {description}
-            <div className="flex gap-x-4 text-neutral-100">
-              <Socials />
-            </div>
-            <div className="flex w-full justify-center gap-x-4">
-              {actions.map(({href, text, primary, Icon}) => (
-                <a
-                  className={classNames(
-                    'flex gap-x-2 rounded-full border-2 bg-none px-4 py-2 text-sm font-medium text-white ring-offset-gray-700/80 hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-base',
-                    primary ? 'border-orange-500 ring-orange-500' : 'border-white ring-white',
-                  )}
-                  href={href}
-                  key={text}>
-                  {text}
-                  {Icon && <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />}
-                </a>
-              ))}
-            </div>
+    <section className="grid items-center overflow-x-clip lg:overflow-x-visible gap-x-8 gap-y-12 pb-16 pt-14 sm:pt-20 lg:grid-cols-[1.15fr_1fr] lg:pb-24" id={SectionId.Hero}>
+      <div>
+        <h1 className="font-display text-5xl font-bold leading-[1.02] tracking-tight text-ink sm:text-7xl">{name}</h1>
+        <p className="mt-4 font-display text-xl font-medium text-ink-soft sm:text-2xl">{role}</p>
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">{summary}</p>
+        <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-4">
+          {actions.map(({href, text, primary, disabled}) =>
+            disabled ? (
+              <button
+                aria-disabled="true"
+                className="inline-flex cursor-not-allowed items-center gap-x-2 rounded-full border border-ink/15 px-6 py-3 text-sm font-medium text-ink-soft/60"
+                disabled
+                key={text}
+                title="Coming soon"
+                type="button">
+                {text}
+                <ArrowDownTrayIcon className="h-4 w-4" />
+              </button>
+            ) : (
+              <a
+                className={
+                  primary
+                    ? 'inline-flex items-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-paper'
+                    : 'inline-flex items-center rounded-full border border-ink/25 px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-ink/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold'
+                }
+                href={href}
+                key={text}>
+                {text}
+              </a>
+            ),
+          )}
+          <div className="flex items-center gap-x-1">
+            <Socials />
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-6 flex justify-center">
-          <a
-            className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
-            href={`/#${SectionId.About}`}>
-            <ChevronDownIcon className="h-5 w-5 bg-transparent sm:h-6 sm:w-6" />
-          </a>
+      </div>
+
+      <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
+        <Contours className="pointer-events-none absolute -inset-[22%] h-[144%] w-[144%]" />
+        <div className="relative mx-auto aspect-[4/5] w-[68%]">
+          <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] border border-gold sm:translate-x-4 sm:translate-y-4" />
+          <Image
+            alt="Portrait of Hung-Ta Chen"
+            className="relative h-full w-full rounded-[2rem] object-cover object-[28%_30%] shadow-xl shadow-ink/10"
+            placeholder="blur"
+            priority
+            sizes="(min-width: 1024px) 24rem, 70vw"
+            src={profilePic}
+          />
         </div>
       </div>
-    </Section>
+    </section>
   );
 });
 

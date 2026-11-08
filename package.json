@@ -1,5 +1,5 @@
 {
-  "name": "react-resume-template",
+  "name": "personal-website",
   "version": "2.0.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,8 @@
     "sitemap": "yarn next-sitemap"
   },
   "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/geist": "^5.3.0",
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
     "@upstash/ratelimit": "^2.0.6",

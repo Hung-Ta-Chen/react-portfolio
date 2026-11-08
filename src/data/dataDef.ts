@@ -1,4 +1,3 @@
-import {StaticImageData} from 'next/image';
 import {FC, ForwardRefExoticComponent, SVGProps} from 'react';
 
 import {IconProps} from '../components/Icon/Icon';
@@ -6,145 +5,63 @@ import {IconProps} from '../components/Icon/Icon';
 export interface HomepageMeta {
   title: string;
   description: string;
-  ogImageUrl?: string;
-  twitterCardType?: 'summary' | 'summary_large';
-  twitterTitle?: string;
-  twitterSite?: string;
-  twitterCreator?: string;
-  twitterDomain?: string;
-  twitterUrl?: string;
-  twitterDescription?: string;
-  twitterImageUrl?: string;
 }
 
-/**
- * Hero section
- */
-export interface Hero {
-  imageSrc: string;
+export interface HeroData {
   name: string;
-  description: JSX.Element;
-  actions: HeroActionItem[];
+  role: string;
+  summary: string;
+  actions: {href: string; text: string; primary?: boolean; disabled?: boolean}[];
 }
 
-interface HeroActionItem {
-  href: string;
+export interface BulletPoint {
+  label?: string;
   text: string;
-  primary?: boolean;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
 }
 
-/**
- * About section
- */
-export interface About {
-  profileImageSrc?: string;
-  description: string;
-  aboutItems: AboutItem[];
+export interface BulletGroup {
+  heading: string;
+  summary?: string;
+  bullets: BulletPoint[];
 }
 
-export interface AboutItem {
-  label: string;
-  text: string;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
-}
-
-/**
- * Stat section
- */
-export interface Stat {
+export interface ExperienceItem {
+  company: string;
   title: string;
-  value: number;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
+  date: string;
+  location: string;
+  bullets: string[];
+  groups?: BulletGroup[];
+  tags?: string[];
 }
 
-/**
- * Skills section
- */
+export interface EducationItem {
+  school: string;
+  degree: string;
+  date: string;
+  location: string;
+}
 
-export interface Skill {
-  name: string;
-  level: number;
-  max?: number;
+export interface ProjectItem {
+  title: string;
+  description: string;
+  url: string;
+  tags: string[];
 }
 
 export interface SkillGroup {
   name: string;
-  skills: Skill[];
+  skills: string[];
 }
 
-/**
- * Portfolio section
- */
-export interface PortfolioItem {
-  title: string;
+export interface ContactData {
+  headerText: string;
   description: string;
-  url: string;
-  image: string | StaticImageData;
+  email: string;
 }
 
-/**
- * Resume section
- */
-export interface TimelineItem {
-  date: string;
-  location: string;
-  title: string;
-  content: JSX.Element;
-}
-
-/**
- * Testimonial section
- */
-export interface TestimonialSection {
-  imageSrc?: string | StaticImageData;
-  testimonials: Testimonial[];
-}
-
-export interface Testimonial {
-  image?: string;
-  name: string;
-  text: string;
-}
-
-/**
- * Contact section
- */
-export interface ContactSection {
-  headerText?: string;
-  description: string;
-  items: ContactItem[];
-}
-
-export const ContactType = {
-  Email: 'Email',
-  Phone: 'Phone',
-  Location: 'Location',
-  Github: 'Github',
-  LinkedIn: 'LinkedIn',
-  Facebook: 'Facebook',
-  Twitter: 'Twitter',
-  Instagram: 'Instagram',
-} as const;
-
-export type ContactType = (typeof ContactType)[keyof typeof ContactType];
-
-export interface ContactItem {
-  type: ContactType;
-  text: string;
-  href?: string;
-}
-
-export interface ContactValue {
-  Icon: FC<IconProps> | ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
-  srLabel: string;
-}
-
-/**
- * Social items
- */
 export interface Social {
   label: string;
-  Icon: FC<IconProps>;
+  Icon: FC<IconProps> | ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
   href: string;
 }

@@ -1,436 +1,206 @@
-import {
-  AcademicCapIcon,
-  ArrowDownTrayIcon,
-  BuildingOffice2Icon,
-  CalendarIcon,
-  FlagIcon,
-  MapIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
-
 import GithubIcon from '../components/Icon/GithubIcon';
-import InstagramIcon from '../components/Icon/InstagramIcon';
-import KaggleIcon from '../components/Icon/KaggleIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import YouTubeIcon from '../components/Icon/YouTubeIcon';
-import portfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import portfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import portfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import portfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import portfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import portfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import portfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import portfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import portfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import portfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import profilepic from '../images/profilepic.jpg';
-import heroImage from '../images/tech_bg.webp';
-import testimonialImage from '../images/testimonial.webp';
 import {
-  About,
-  ContactSection,
-  ContactType,
-  Hero,
+  ContactData,
+  EducationItem,
+  ExperienceItem,
+  HeroData,
   HomepageMeta,
-  PortfolioItem,
+  ProjectItem,
   SkillGroup,
   Social,
-  TestimonialSection,
-  TimelineItem,
 } from './dataDef';
 
-/**
- * Page meta data
- */
+export const SITE_URL = 'https://hungtachen.com';
+
 export const homePageMeta: HomepageMeta = {
-  title: "Hung-Ta Chen's Website",
-  description: "Hung-Ta Chen's Portfolio Website",
+  title: 'Hung-Ta Chen | Software Engineer',
+  description: 'Hung-Ta Chen is a software engineer at Amazon in Seattle, working on Seller Fees in Selling Partner Services.',
 };
 
-/**
- * Section definition
- */
 export const SectionId = {
   Hero: 'hero',
-  About: 'about',
-  Contact: 'contact',
-  Portfolio: 'portfolio',
-  Resume: 'resume',
+  Experience: 'experience',
+  Projects: 'projects',
   Skills: 'skills',
-  Stats: 'stats',
-  Testimonials: 'testimonials',
+  Contact: 'contact',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
-/**
- * Hero section
- */
-export const heroData: Hero = {
-  imageSrc: heroImage,
-  name: `I'm Hung-Ta Chen.`,
-  description: (
-    <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Davis, CA based <strong className="text-stone-100">Software Engineer</strong>, currently exploring
-        opportunities to contribute in areas of software development and machine learning.
-      </p>
-    </>
-  ),
+export const heroData: HeroData = {
+  name: 'Hung-Ta Chen',
+  role: 'Software Development Engineer at Amazon',
+  summary:
+    "I'm a software engineer in Amazon Stores, on the Seller Fees team within Selling Partner Services, where I build LLM-powered fee explanations and an AI fee agent for sellers. " +
+    'I have an M.S. in Statistics from UC Davis and a background in electrical and computer engineering, ' +
+    'so I like work where backend engineering meets data and machine learning. Based in Seattle.',
   actions: [
-    {
-      href: '/assets/Hungta-Resume.pdf',
-      text: 'Resume',
-      primary: true,
-      Icon: ArrowDownTrayIcon,
-    },
-    {
-      href: `#${SectionId.Contact}`,
-      text: 'Contact',
-      primary: false,
-    },
+    {href: `#${SectionId.Contact}`, text: 'Get in touch', primary: true},
+    // Unclickable until the new PDF is ready: remove `disabled` to turn it back on.
+    {href: '/assets/Hungta-Resume.pdf', text: 'Download resume', disabled: true},
   ],
 };
 
-/**
- * About section
- */
-export const aboutData: About = {
-  profileImageSrc: profilepic,
-  description: `Hello! I'm Hung-Ta Chen, a recent graduate with a Master's in Statistics from UC Davis, specializing in Data Science. `+
-              `With a strong foundation in electrical and computer engineering from Taiwan, I am passionate about leveraging data to build innovative software and machine learning solutions. `+
-              `When I'm not programming, I enjoy martial arts and exploring culinary arts. I'm keen to engage in projects that challenge me and expand my horizons.`,
-  aboutItems: [
-    {label: 'Location', text: 'Davis, CA', Icon: MapIcon},
-    {label: 'Age', text: '25', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Taiwan', Icon: FlagIcon},
-    {label: 'Interests', text: 'Coding, Wrestling, BJJ, Cooking', Icon: SparklesIcon},
-    {label: 'Study', text: 'UC Davis', Icon: AcademicCapIcon},
-    {label: 'Employment', text: '', Icon: BuildingOffice2Icon},
-  ],
-};
-
-/**
- * Skills section
- */
-export const skills: SkillGroup[] = [
+export const experience: ExperienceItem[] = [
   {
-    name: 'Programming Languages',
-    skills: [
+    company: 'Amazon',
+    title: 'Software Development Engineer, Stores – Selling Partner Services (Seller Fees)',
+    date: 'Dec 2024 – Present',
+    location: 'Seattle, WA',
+    bullets: [],
+    groups: [
       {
-        name: 'Python',
-        level: 9,
+        heading: 'LLM Fee Explainer',
+        summary:
+          'Turns a seller’s fee charge into a plain-language explanation across Manage Your Payments, Revenue Calculator and Seller Assistant. It serves ~625K explanations a day, with 38 fee types live across 29 marketplaces. I own it end to end:',
+        bullets: [
+          {
+            label: 'Control plane',
+            text: 'Designed a config-driven platform, with configuration in DynamoDB managed through an internal portal, so a new fee type onboards with configuration only instead of ~4 engineer-weeks of code. Replacing ~36 per-fee prompts with one cacheable template cut serving cost 55–58% per region (~$78K/yr) at ~81% cache hit.',
+          },
+          {
+            label: 'Fee-change workflow',
+            text: 'Built an AWS Step Functions workflow that detects fee changes, turns raw rate tables into explainable formulas with a symbolic engine, generates the explanation with an LLM, and runs an AI review agent before human approval and a multi-region rollout. 517 rate-card changes have gone live automatically (94% AI-approved), taking per-change engineering time from 0.5–3 hours to zero. The new O(K·N log N) algorithm replaced an O(N²) one, so a 1,260-row table that used to time out now finishes in ~9 minutes.',
+          },
+          {
+            label: 'Models and reliability',
+            text: 'Moved Nova Pro to Haiku 4.5 after an A/B test on 74 real prompts (100% vs 74% quality). Then moved to Claude Sonnet 5.5 with multi-model fallback and circuit breakers. Bedrock cost fell 80–83% (~$71–85K/yr), p90 latency fell 44–47% in every region, and no region has exceeded 0.1% daily faults since the fallback (it was up to 3.1% before).',
+          },
+          {
+            label: 'India expansion',
+            text: 'As the sole engineer, brought the Explainer to a marketplace whose fee structure differs from every other region. 10 fee types shipped, reaching 17,217 sellers in 30 days.',
+          },
+        ],
       },
       {
-        name: 'JavaScript',
-        level: 7,
+        heading: 'Fee Agent',
+        summary: 'An AI assistant that answers sellers’ fee questions. I own its model and experiment stack:',
+        bullets: [
+          {
+            text: 'Moved it to Claude Sonnet 5.5 in six days behind go/no-go gates, then A/B-tested a low-effort setting. LLM-call p90/p99 fell from 18.3s/29.0s to 10.2s/13.2s, Bedrock cost fell 48% a day (74% per request) while traffic roughly doubled, and truncated answers dropped from 6.0% to 3.6%.',
+          },
+          {
+            text: 'Built an experiment platform with dynamic model selection from Amazon Bedrock, so new models become available to test automatically, with promote/restore controls and review-gated production changes.',
+          },
+        ],
       },
       {
-        name: 'TypeScript',
-        level: 7,
-      },
-      {
-        name: 'Java',
-        level: 7,
-      },
-      {
-        name: 'C#',
-        level: 6,
+        heading: 'Also',
+        bullets: [
+          {
+            text: 'Built a daily pipeline-health report now used by 11 Fees teams, with all 64 of our team’s production pipelines meeting the ≤2-day time-to-prod goal (team average 0.1 day, down from 2.5 days in August).',
+          },
+          {
+            text: 'Separately, led a zero-downtime migration of a production fleet to a new AWS region, moving 136M+ DynamoDB items and ~6TB of S3 data and eliminating $9.5K/month in AWS cost.',
+          },
+        ],
       },
     ],
+    tags: ['Java', 'TypeScript', 'Python', 'AWS', 'Amazon Bedrock', 'LLMs'],
   },
   {
-    name: 'Backend Technologies',
-    skills: [
-      {
-        name: 'Flask',
-        level: 7,
-      },
-      {
-        name: 'Django',
-        level: 7,
-      },
-      {
-        name: 'FastAPI',
-        level: 5,
-      },
-      {
-        name: 'NestJS',
-        level: 7,
-      },
-      {
-        name: 'Spring Boot',
-        level: 3,
-      },
+    company: 'Cielara AI',
+    title: 'Software Engineer',
+    date: 'Oct 2024 – Nov 2024',
+    location: 'Remote (San Francisco, CA)',
+    bullets: [
+      'Built backend services in Go to scan AWS and GCP cloud resources and model configuration data into domain schemas for downstream security and analytics use cases.',
+      'Improved scan throughput by ~40% with goroutine-based parallelization and batch fetching, cutting end-to-end latency in large multi-account environments.',
     ],
+    tags: ['Go', 'AWS', 'GCP'],
   },
   {
-    name: 'Database Management',
-    skills: [
-      {
-        name: 'PostgreSQL',
-        level: 7,
-      },
-      {
-        name: 'MySQL',
-        level: 6,
-      },
-      {
-        name: 'MongoDB',
-        level: 6,
-      },
-      {
-        name: 'Redis',
-        level: 5,
-      },
+    company: 'Legion AI',
+    title: 'Software Engineer Intern',
+    date: 'May 2024 – Aug 2024',
+    location: 'Remote (New York, NY)',
+    bullets: [
+      'Built a Flask-based AI agent service using the OpenAI API and MetaGPT, integrated into a NestJS chatbot backend with Redis caching for low-latency, context-aware analytics conversations.',
+      'Built a RAG pipeline with LlamaIndex over a Pgvector database so the code-generation agent could fetch relevant examples on demand, improving reliability.',
     ],
-  },
-  {
-    name: 'Frontend Technologies',
-    skills: [
-      {
-        name: 'React',
-        level: 6,
-      },
-      {
-        name: 'Redux',
-        level: 4,
-      },
-      {
-        name: 'HTML',
-        level: 7,
-      },
-      {
-        name: 'CSS',
-        level: 5,
-      },
-    ],
-  },
-  {
-    name: 'Machine Learning Frameworks',
-    skills: [
-      {
-        name: 'PyTorch',
-        level: 7,
-      },
-      {
-        name: 'Scikit-learn',
-        level: 6,
-      },
-      {
-        name: 'TensorFlow',
-        level: 6,
-      },
-    ],
-  },
-  {
-    name: 'AI & Data Science Tools',
-    skills: [
-      {
-        name: 'OpenAI API',
-        level: 7,
-      },
-      {
-        name: 'LlamaIndex',
-        level: 6,
-      },
-      {
-        name: 'LangChain',
-        level: 4,
-      },
-    ],
+    tags: ['Flask', 'NestJS', 'Redis', 'LlamaIndex', 'Docker'],
   },
 ];
 
-/**
- * Portfolio section
- */
-export const portfolioItems: PortfolioItem[] = [
+export const education: EducationItem[] = [
   {
-    title: 'Accessify',
-    description: 'Interactive mapping application to improve accessibility information with React, Flask, and PostgreSQL.',
-    url: 'https://github.com/Hung-Ta-Chen/Accessify', 
-    image: portfolioImage1,
+    school: 'University of California, Davis',
+    degree: 'M.S. Statistics, Data Science Track',
+    date: 'Sep 2022 – Jun 2024',
+    location: 'Davis, CA',
   },
   {
-    title: 'Food Management App',
-    description: 'Django-based app to reduce food waste, utilizing Clarifai AI and RESTful APIs.',
-    url: 'https://github.com/Hung-Ta-Chen/KitchenCompanion-API',
-    image: portfolioImage5,
+    school: 'National Chiao Tung University',
+    degree: 'B.S. Electrical & Computer Engineering',
+    date: 'Sep 2019 – Jan 2022',
+    location: 'Hsinchu, Taiwan',
+  },
+  {
+    school: 'National Taiwan University',
+    degree: 'B.S. Biochemical Science & Technology',
+    date: 'Sep 2017 – Jun 2019',
+    location: 'Taipei, Taiwan',
+  },
+];
+
+export const projects: ProjectItem[] = [
+  {
+    title: 'Accessify',
+    description: 'Interactive map that crowdsources accessibility information for places.',
+    url: 'https://github.com/Hung-Ta-Chen/Accessify',
+    tags: ['React', 'Flask', 'PostgreSQL'],
   },
   {
     title: 'UFC Playground',
-    description: 'UFC stats and predictions platform, built with React.js and Django, deployed on AWS.',
+    description: 'UFC stats and fight-prediction platform, deployed on AWS.',
     url: 'https://github.com/Hung-Ta-Chen/UFC-Playground-Backend',
-    image: portfolioImage2,
+    tags: ['React', 'Django', 'AWS'],
   },
   {
-    title: 'AI-Powered Coding Problem Classifier',
-    description: 'BERT-based model to classify coding problems, achieving a high F1 score.',
-    url: 'https://github.com/Hung-Ta-Chen/AI-Powered-Coding-Problem-Classifier',
-    image: portfolioImage4,
-  },
-  {
-    title: 'English Vocabulary Learning App',
-    description: 'Mobile app for learning English vocabulary using JavaFX.',
-    url: 'https://github.com/Hung-Ta-Chen/English-Vocabulary-Learning-App',
-    image: portfolioImage3,
+    title: 'Kitchen Companion',
+    description: 'Food-management API that helps reduce food waste, using Clarifai image recognition.',
+    url: 'https://github.com/Hung-Ta-Chen/KitchenCompanion-API',
+    tags: ['Django', 'REST', 'Clarifai'],
   },
   {
     title: 'Real-Time UAV Object Detection',
-    description: 'System using YOLOv5 for real-time object detection on UAVs.',
+    description: 'Real-time object detection pipeline for drone footage built on YOLOv5.',
     url: 'https://github.com/Hung-Ta-Chen/UAV-object-detection-with-YOLO',
-    image: portfolioImage6,
+    tags: ['PyTorch', 'YOLOv5', 'Computer Vision'],
   },
   {
-    title: 'Machine Translation System Using PyTorch',
-    description: 'English-Russian translation model using Transformer architecture in PyTorch.',
+    title: 'Coding Problem Classifier',
+    description: 'BERT-based model that classifies coding problems by topic.',
+    url: 'https://github.com/Hung-Ta-Chen/AI-Powered-Coding-Problem-Classifier',
+    tags: ['PyTorch', 'BERT', 'NLP'],
+  },
+  {
+    title: 'Russian–English Translation',
+    description: 'Encoder-decoder Transformer with multi-head attention, implemented in PyTorch.',
     url: 'https://www.kaggle.com/code/hungtachen/russian-to-english-with-encoder-decoder-mha',
-    image: portfolioImage7,
-  },
-  {
-    title: 'Lane Following Robot',
-    description: 'Lane following robot using PyTorch for autonomous navigation.',
-    url: 'https://github.com/Hung-Ta-Chen/Lane-Following-Robot',
-    image: portfolioImage8,
-  },
-  {
-    title: 'Action Game Project',
-    description: 'Classic action game developed using SDL2 in C.',
-    url: 'https://github.com/Hung-Ta-Chen/Action-Game-Project',
-    image: portfolioImage9,
-  },
-  {
-    title: 'Job Application Counter',
-    description: 'Web app to track job applications and provide analytics using React and Node.js.',
-    url: 'https://github.com/Hung-Ta-Chen/Job-Application-Counter',
-    image: portfolioImage10,
-  }
-];
-
-/**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
- */
-export const education: TimelineItem[] = [
-  {
-    date: 'Sep. 2022 – Jun. 2024',
-    location: 'University of California – Davis, Davis, CA',
-    title: 'Master of Science in Statistics – Data Science Track',
-    content: (
-      <p>
-        At UC Davis, I focused on the Data Science track within the Statistics program, 
-        developing expertise in machine learning, statistical methods, and data analysis. 
-        Projects and coursework involved advanced statistical models, machine learning algorithms, 
-        and hands-on data science applications, preparing me for complex problem-solving in tech industries.
-      </p>
-    ),
-  },
-  {
-    date: 'Sep. 2019 – Jan. 2022',
-    location: 'National Chiao Tung University, Hsinchu, Taiwan',
-    title: 'Bachelor of Science in Electrical & Computer Engineering',
-    content: (
-      <p>
-        During my undergraduate studies, I immersed myself in the fundamentals of computer engineering 
-        with a strong emphasis on software development and Deep Learning. I engaged in various projects 
-        that applied programming skills and object-oriented concepts to build software and hardware solutions, 
-        furthering my passion for technology and innovation.
-      </p>
-    ),
+    tags: ['PyTorch', 'Transformers', 'NLP'],
   },
 ];
 
-export const experience: TimelineItem[] = [
+export const skills: SkillGroup[] = [
+  {name: 'Languages', skills: ['Java', 'Python', 'TypeScript', 'JavaScript', 'SQL']},
+  {name: 'Backend', skills: ['Django', 'Flask', 'FastAPI', 'NestJS']},
+  {name: 'Data & Cloud', skills: ['AWS (Lambda, ECS, Step Functions, DynamoDB, CDK)', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis']},
+  {name: 'Frontend', skills: ['React', 'Next.js', 'Tailwind CSS']},
   {
-    date: 'May 2024 - Aug 2024',
-    location: 'Ra Labs, United States',
-    title: 'Software Engineer Intern',
-    content: (
-      <p>
-        During my internship at Ra Labs, I assumed the role of principal architect for an advanced multi-agent system powered by MetaGPT and the OpenAI API, aimed at revolutionizing AI-driven analytics. I successfully integrated a retrieval-augmented generation (RAG) system using LlamaIndex, specifically tailored to empower a code generator agent with the capability to efficiently index and retrieve relevant code snippets. This significantly improved the accuracy and relevance of the generated code. Additionally, my work involved refining user interfaces with React and TypeScript, as well as developing on the Flask server.
-      </p>
-    ),
-  },
-  {
-    date: 'Jul 2023 - Sep 2023',
-    location: 'LiTai Technology, Taipei, Taiwan',
-    title: 'Software Engineer Intern',
-    content: (
-      <p>
-        At LiTai Technology, I engineered solutions that bridged hardware with software for sophisticated payment systems, focusing on enhancing security and processing speeds. My efforts were pivotal in developing software that streamlined and secured transaction processing, utilizing C# and .NET frameworks.
-      </p>
-    ),
-  },
-  {
-    date: 'Sep 2020 - Jan 2021',
-    location: 'National Chiao Tung University, Hsinchu, Taiwan',
-    title: 'Undergraduate Research Assistant',
-    content: (
-      <p>
-        During my experience as a undergrad research assistant, I contributed to significant advancements in virtual garment technology using deep learning techniques. My role involved developing models that greatly improved the accuracy of garment overlays in virtual environments. This project required sophisticated image processing and machine learning techniques, enhancing the outcomes and practical applications of AI in fashion technology.
-      </p>
-    ),
+    name: 'ML & AI',
+    skills: ['Amazon Bedrock', 'LangGraph', 'LlamaIndex', 'LangChain', 'MCP', 'PyTorch', 'scikit-learn'],
   },
 ];
 
-
-/**
- * Testimonial section
- */
-export const testimonial: TestimonialSection = {
-  imageSrc: testimonialImage,
-  testimonials: [
-    {
-      name: '',
-      text: '',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
-    },
-    {
-      name: '',
-      text: '',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
-    },
-  ],
+export const contact: ContactData = {
+  headerText: "Let's talk",
+  description: 'Open to interesting problems and good conversations. Send a message here or email me directly.',
+  email: 'hungtachen0121@gmail.com',
 };
 
-/**
- * Contact section
- */
-
-export const contact: ContactSection = {
-  headerText: 'Get in touch.',
-  description: "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out to me using the links below or directly send a message!",
-  items: [
-    {
-      type: ContactType.Email,
-      text: 'hungtachen0121@gmail.com',
-      href: 'mailto:hungtachen0121@gmail.com',
-    },
-    {
-      type: ContactType.Location,
-      text: 'Davis CA, US',
-      href: 'https://www.google.com/maps/place/Davis,+CA/@38.5567881,-121.8173447,12z',
-    },
-    {
-      type: ContactType.Github,
-      text: 'Hung-Ta-Chen',
-      href: 'https://github.com/Hung-Ta-Chen',
-    },
-    {
-      type: ContactType.Instagram,
-      text: '@daniel__rolling',
-      href: 'https://www.instagram.com/daniel__rolling/',
-    },
-  ],
-};
-
-/**
- * Social items
- */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/Hung-Ta-Chen'},
+  {label: 'GitHub', Icon: GithubIcon, href: 'https://github.com/Hung-Ta-Chen'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/hungta-chen/'},
-  {label: 'YouTube', Icon: YouTubeIcon, href: 'https://www.youtube.com/@Hung-TaChen'},
-  {label: 'Kaggle', Icon: KaggleIcon, href: 'https://www.kaggle.com/hungtachen'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/daniel__rolling/'},
 ];
