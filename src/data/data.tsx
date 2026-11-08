@@ -7,8 +7,8 @@ import {
   HeroData,
   HomepageMeta,
   ProjectItem,
-  Social,
   SkillGroup,
+  Social,
 } from './dataDef';
 
 export const SITE_URL = 'https://hungtachen.com';
