@@ -30,7 +30,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
 export const heroData: HeroData = {
   name: 'Hung-Ta Chen',
-  role: 'Software Engineer at Amazon',
+  role: 'Software Development Engineer at Amazon',
   summary:
     "I'm a software engineer in Amazon Stores, on the Seller Fees team within Selling Partner Services. " +
     'I have an M.S. in Statistics from UC Davis and a background in electrical and computer engineering, ' +
@@ -44,35 +44,33 @@ export const heroData: HeroData = {
 export const experience: ExperienceItem[] = [
   {
     company: 'Amazon',
-    title: 'Software Engineer, Stores – Selling Partner Services (Seller Fees)',
-    date: '2024 – Present',
+    title: 'Software Development Engineer, Stores – Selling Partner Services (Seller Fees)',
+    date: 'Dec 2024 – Present',
     location: 'Seattle, WA',
-    // TODO: replace with 2–3 impact bullets (scope, scale, measurable results) you can share publicly.
+    // TODO: add measurable impact (scope, scale, results) you can share publicly.
     bullets: [
-      "Build and operate backend services in the Seller Fees organization, which supports how fees are calculated and applied for Amazon's selling partners.",
+      'Building the Fee Seller Experience for Amazon selling partners, including an LLM-based Fee Explainer and a Fee Agent.',
     ],
+    tags: ['Java', 'AWS'],
   },
   {
-    company: 'Ra Labs',
+    company: 'Cielara AI',
+    title: 'Software Engineer',
+    date: 'Oct 2024 – Nov 2024',
+    location: 'Remote (San Francisco, CA)',
+    bullets: ['Worked on Infrastructure Intelligence, an infrastructure analysis product.'],
+    tags: ['Go', 'AWS'],
+  },
+  {
+    company: 'Legion AI',
     title: 'Software Engineer Intern',
     date: 'May 2024 – Aug 2024',
-    location: 'Remote, United States',
+    location: 'Remote (New York, NY)',
     bullets: [
-      'Architected a multi-agent analytics system on MetaGPT and the OpenAI API.',
-      'Built a retrieval-augmented generation (RAG) layer with LlamaIndex so a code-generation agent could index and retrieve relevant code, improving the accuracy of generated code.',
-      'Developed React/TypeScript UI improvements and Flask server features.',
+      'Built a Flask-based AI agent service using the OpenAI API and MetaGPT, integrated into a NestJS chatbot backend with Redis caching for low-latency, context-aware analytics conversations.',
+      'Built a RAG pipeline with LlamaIndex over a Pgvector database so the code-generation agent could fetch relevant examples on demand, improving reliability.',
     ],
-    tags: ['Python', 'Flask', 'React', 'TypeScript', 'LlamaIndex'],
-  },
-  {
-    company: 'LiTai Technology',
-    title: 'Software Engineer Intern',
-    date: 'Jul 2023 – Sep 2023',
-    location: 'Taipei, Taiwan',
-    bullets: [
-      'Developed C#/.NET software that connects hardware with payment systems, focused on transaction security and processing speed.',
-    ],
-    tags: ['C#', '.NET'],
+    tags: ['Flask', 'NestJS', 'Redis', 'LlamaIndex', 'Docker'],
   },
 ];
 
@@ -80,14 +78,20 @@ export const education: EducationItem[] = [
   {
     school: 'University of California, Davis',
     degree: 'M.S. Statistics, Data Science Track',
-    date: '2022 – 2024',
+    date: 'Sep 2022 – Jun 2024',
     location: 'Davis, CA',
   },
   {
     school: 'National Chiao Tung University',
     degree: 'B.S. Electrical & Computer Engineering',
-    date: '2019 – 2022',
+    date: 'Sep 2019 – Jan 2022',
     location: 'Hsinchu, Taiwan',
+  },
+  {
+    school: 'National Taiwan University',
+    degree: 'B.S. Biochemical Science & Technology',
+    date: 'Sep 2017 – Jun 2019',
+    location: 'Taipei, Taiwan',
   },
 ];
 
