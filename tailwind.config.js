@@ -4,9 +4,6 @@ module.exports = {
   // darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
-      colors: {
-        yellow: '#efc603',
-      },
       keyframes: {
         typing: {
           '0%, 100%': {width: '0%'},

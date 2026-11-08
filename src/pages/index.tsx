@@ -1,31 +1,28 @@
-import dynamic from 'next/dynamic';
 import {FC, memo} from 'react';
 
 import Page from '../components/Layout/Page';
-import About from '../components/Sections/About';
 import Contact from '../components/Sections/Contact';
+import Experience from '../components/Sections/Experience';
 import Footer from '../components/Sections/Footer';
+import Header from '../components/Sections/Header';
 import Hero from '../components/Sections/Hero';
-import Portfolio from '../components/Sections/Portfolio';
-import Resume from '../components/Sections/Resume';
-import Testimonials from '../components/Sections/Testimonials';
+import Projects from '../components/Sections/Projects';
+import Skills from '../components/Sections/Skills';
 import {homePageMeta} from '../data/data';
-
-// eslint-disable-next-line react-memo/require-memo
-const Header = dynamic(() => import('../components/Sections/Header'), {ssr: false});
 
 const Home: FC = memo(() => {
   const {title, description} = homePageMeta;
   return (
     <Page description={description} title={title}>
       <Header />
-      <Hero />
-      <About />
-      <Resume />
-      <Portfolio />
-      <Testimonials />
-      <Contact />
-      <Footer />
+      <main className="mx-auto max-w-3xl px-4 sm:px-6">
+        <Hero />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+        <Footer />
+      </main>
     </Page>
   );
 });

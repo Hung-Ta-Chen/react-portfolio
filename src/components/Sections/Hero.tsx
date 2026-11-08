@@ -1,57 +1,37 @@
-import {ChevronDownIcon} from '@heroicons/react/24/outline';
+import {ArrowDownTrayIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import Image from 'next/image';
 import {FC, memo} from 'react';
 
 import {heroData, SectionId} from '../../data/data';
-import Section from '../Layout/Section';
 import Socials from '../Socials';
 
 const Hero: FC = memo(() => {
-  const {imageSrc, name, description, actions} = heroData;
-
+  const {name, role, summary, actions} = heroData;
   return (
-    <Section noPadding sectionId={SectionId.Hero}>
-      <div className="relative flex h-screen w-full items-center justify-center">
-        <Image
-          alt={`${name}-image`}
-          className="absolute z-0 h-full w-full object-cover"
-          placeholder="blur"
-          priority
-          src={imageSrc}
-        />
-        <div className="z-10  max-w-screen-lg px-4 lg:px-0">
-          <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 text-center shadow-lg backdrop-blur-sm">
-            <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">{name}</h1>
-            {description}
-            <div className="flex gap-x-4 text-neutral-100">
-              <Socials />
-            </div>
-            <div className="flex w-full justify-center gap-x-4">
-              {actions.map(({href, text, primary, Icon}) => (
-                <a
-                  className={classNames(
-                    'flex gap-x-2 rounded-full border-2 bg-none px-4 py-2 text-sm font-medium text-white ring-offset-gray-700/80 hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-base',
-                    primary ? 'border-orange-500 ring-orange-500' : 'border-white ring-white',
-                  )}
-                  href={href}
-                  key={text}>
-                  {text}
-                  {Icon && <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="absolute inset-x-0 bottom-6 flex justify-center">
+    <section className="pb-12 pt-16 sm:pb-16 sm:pt-24" id={SectionId.Hero}>
+      <p className="text-sm font-medium text-indigo-600">{role}</p>
+      <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-6xl">{name}</h1>
+      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">{summary}</p>
+      <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-4">
+        {actions.map(({href, text, primary}) => (
           <a
-            className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
-            href={`/#${SectionId.About}`}>
-            <ChevronDownIcon className="h-5 w-5 bg-transparent sm:h-6 sm:w-6" />
+            className={classNames(
+              'inline-flex items-center gap-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2',
+              primary
+                ? 'bg-zinc-900 text-white hover:bg-zinc-700'
+                : 'border border-zinc-300 text-zinc-800 hover:border-zinc-400 hover:bg-zinc-100',
+            )}
+            href={href}
+            key={text}>
+            {text}
+            {primary && <ArrowDownTrayIcon className="h-4 w-4" />}
           </a>
+        ))}
+        <div className="flex items-center gap-x-1">
+          <Socials />
         </div>
       </div>
-    </Section>
+    </section>
   );
 });
 
