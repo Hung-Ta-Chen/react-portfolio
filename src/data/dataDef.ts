@@ -11,7 +11,7 @@ export interface HeroData {
   name: string;
   role: string;
   summary: string;
-  actions: {href: string; text: string; primary?: boolean}[];
+  actions: {href: string; text: string; primary?: boolean; disabled?: boolean}[];
 }
 
 export interface BulletPoint {

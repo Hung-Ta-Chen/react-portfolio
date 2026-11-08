@@ -36,8 +36,9 @@ export const heroData: HeroData = {
     'I have an M.S. in Statistics from UC Davis and a background in electrical and computer engineering, ' +
     'so I like work where backend engineering meets data and machine learning. Based in Seattle.',
   actions: [
-    // Resume download is hidden until the new PDF is ready: {href: '/assets/Hungta-Resume.pdf', text: 'Download resume'}
     {href: `#${SectionId.Contact}`, text: 'Get in touch', primary: true},
+    // Unclickable until the new PDF is ready: remove `disabled` to turn it back on.
+    {href: '/assets/Hungta-Resume.pdf', text: 'Download resume', disabled: true},
   ],
 };
 

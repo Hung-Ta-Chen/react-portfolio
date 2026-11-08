@@ -1,3 +1,4 @@
+import {ArrowDownTrayIcon} from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import {FC, memo} from 'react';
 
@@ -9,20 +10,37 @@ import Socials from '../Socials';
 const Hero: FC = memo(() => {
   const {name, role, summary, actions} = heroData;
   return (
-    <section className="grid items-center overflow-x-clip gap-x-8 gap-y-12 pb-16 pt-14 sm:pt-20 lg:grid-cols-[1.15fr_1fr] lg:pb-24" id={SectionId.Hero}>
+    <section className="grid items-center overflow-x-clip lg:overflow-x-visible gap-x-8 gap-y-12 pb-16 pt-14 sm:pt-20 lg:grid-cols-[1.15fr_1fr] lg:pb-24" id={SectionId.Hero}>
       <div>
         <h1 className="font-display text-5xl font-bold leading-[1.02] tracking-tight text-ink sm:text-7xl">{name}</h1>
         <p className="mt-4 font-display text-xl font-medium text-ink-soft sm:text-2xl">{role}</p>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">{summary}</p>
         <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-4">
-          {actions.map(({href, text}) => (
-            <a
-              className="inline-flex items-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
-              href={href}
-              key={text}>
-              {text}
-            </a>
-          ))}
+          {actions.map(({href, text, primary, disabled}) =>
+            disabled ? (
+              <button
+                aria-disabled="true"
+                className="inline-flex cursor-not-allowed items-center gap-x-2 rounded-full border border-ink/15 px-6 py-3 text-sm font-medium text-ink-soft/60"
+                disabled
+                key={text}
+                title="Coming soon"
+                type="button">
+                {text}
+                <ArrowDownTrayIcon className="h-4 w-4" />
+              </button>
+            ) : (
+              <a
+                className={
+                  primary
+                    ? 'inline-flex items-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-paper'
+                    : 'inline-flex items-center rounded-full border border-ink/25 px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-ink/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold'
+                }
+                href={href}
+                key={text}>
+                {text}
+              </a>
+            ),
+          )}
           <div className="flex items-center gap-x-1">
             <Socials />
           </div>
