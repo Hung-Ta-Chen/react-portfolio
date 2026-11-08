@@ -47,13 +47,54 @@ export const experience: ExperienceItem[] = [
     title: 'Software Development Engineer, Stores – Selling Partner Services (Seller Fees)',
     date: 'Dec 2024 – Present',
     location: 'Seattle, WA',
-    bullets: [
-      'Own the LLM Fee Explainer, which turns a seller’s fee charge into a plain-language explanation across Manage Your Payments, Revenue Calculator and Seller Assistant, serving over 600K explanations a day.',
-      'Designed a config-driven platform that cut onboarding a new fee type from about four engineer-weeks to configuration only; 38 fee types now run on it across 29 marketplaces.',
-      'Automated the fee-change workflow end to end: a symbolic engine that simplifies rate tables into explainable formulas, and an AI review agent that approves the changes passing quality checks, so routine rate-card changes go live with no engineering time.',
-      'Upgraded the model stack on Amazon Bedrock using A/B tests on real production data, and added multi-model fallback with circuit breakers, cutting p90 latency by about 45% and inference cost by over 80%.',
-      'Sole engineer on the India launch (10 fee types), then handed day-to-day operation to the Fee Ops team; also own the model and experiment stack behind the Talos fee agent.',
-      'Built a daily pipeline-health report now used by 11 Fees teams, and migrated a production fleet to a new AWS region with zero downtime and no data loss.',
+    bullets: [],
+    groups: [
+      {
+        heading: 'LLM Fee Explainer',
+        summary:
+          'Turns a seller’s fee charge into a plain-language explanation across Manage Your Payments, Revenue Calculator and Seller Assistant. It serves ~625K explanations a day, with 38 fee types live across 29 marketplaces. I own it end to end:',
+        bullets: [
+          {
+            label: 'Control plane',
+            text: 'Designed a config-driven platform, with configuration in DynamoDB managed through an internal portal, so a new fee type onboards with configuration only instead of ~4 engineer-weeks of code. Replacing ~36 per-fee prompts with one cacheable template cut serving cost 55–58% per region (~$78K/yr) at ~81% cache hit.',
+          },
+          {
+            label: 'Fee-change workflow',
+            text: 'Built an AWS Step Functions workflow that detects fee changes, turns raw rate tables into explainable formulas with a symbolic engine, generates the explanation with an LLM, and runs an AI review agent before human approval and a multi-region rollout. 517 rate-card changes have gone live automatically (94% AI-approved), taking per-change engineering time from 0.5–3 hours to zero. The new O(K·N log N) algorithm replaced an O(N²) one, so a 1,260-row table that used to time out now finishes in ~9 minutes.',
+          },
+          {
+            label: 'Models and reliability',
+            text: 'Moved Nova Pro to Haiku 4.5 after an A/B test on 74 real prompts (100% vs 74% quality). Then moved to Claude Sonnet 5.5 with multi-model fallback and circuit breakers. Bedrock cost fell 80–83% (~$71–85K/yr), p90 latency fell 44–47% in every region, and no region has exceeded 0.1% daily faults since the fallback (it was up to 3.1% before).',
+          },
+          {
+            label: 'India expansion',
+            text: 'As the sole engineer, brought the Explainer to a marketplace whose fee structure differs from every other region. 10 fee types shipped, reaching 17,217 sellers in 30 days.',
+          },
+        ],
+      },
+      {
+        heading: 'Fee Agent',
+        summary: 'An AI assistant that answers sellers’ fee questions. I own its model and experiment stack:',
+        bullets: [
+          {
+            text: 'Moved it to Claude Sonnet 5.5 in six days behind go/no-go gates, then A/B-tested a low-effort setting. LLM-call p90/p99 fell from 18.3s/29.0s to 10.2s/13.2s, Bedrock cost fell 48% a day (74% per request) while traffic roughly doubled, and truncated answers dropped from 6.0% to 3.6%.',
+          },
+          {
+            text: 'Built an experiment platform with dynamic model selection from Amazon Bedrock, so new models become available to test automatically, with promote/restore controls and review-gated production changes.',
+          },
+        ],
+      },
+      {
+        heading: 'Also',
+        bullets: [
+          {
+            text: 'Built a daily pipeline-health report now used by 11 Fees teams, with all 64 of our team’s production pipelines meeting the ≤2-day time-to-prod goal (team average 0.1 day, down from 2.5 days in August).',
+          },
+          {
+            text: 'Separately, led a zero-downtime migration of a production fleet to a new AWS region, moving 136M+ DynamoDB items and ~6TB of S3 data and eliminating $9.5K/month in AWS cost.',
+          },
+        ],
+      },
     ],
     tags: ['Java', 'TypeScript', 'Python', 'AWS', 'Amazon Bedrock', 'LLMs'],
   },
@@ -62,8 +103,11 @@ export const experience: ExperienceItem[] = [
     title: 'Software Engineer',
     date: 'Oct 2024 – Nov 2024',
     location: 'Remote (San Francisco, CA)',
-    bullets: ['Worked on Infrastructure Intelligence, an infrastructure analysis product.'],
-    tags: ['Go', 'AWS'],
+    bullets: [
+      'Built backend services in Go to scan AWS and GCP cloud resources and model configuration data into domain schemas for downstream security and analytics use cases.',
+      'Improved scan throughput by ~40% with goroutine-based parallelization and batch fetching, cutting end-to-end latency in large multi-account environments.',
+    ],
+    tags: ['Go', 'AWS', 'GCP'],
   },
   {
     company: 'Legion AI',

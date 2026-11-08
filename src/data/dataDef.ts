@@ -14,12 +14,24 @@ export interface HeroData {
   actions: {href: string; text: string; primary?: boolean}[];
 }
 
+export interface BulletPoint {
+  label?: string;
+  text: string;
+}
+
+export interface BulletGroup {
+  heading: string;
+  summary?: string;
+  bullets: BulletPoint[];
+}
+
 export interface ExperienceItem {
   company: string;
   title: string;
   date: string;
   location: string;
   bullets: string[];
+  groups?: BulletGroup[];
   tags?: string[];
 }
 
