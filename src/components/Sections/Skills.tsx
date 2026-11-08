@@ -5,11 +5,11 @@ import Section from '../Layout/Section';
 
 const Skills: FC = memo(() => (
   <Section sectionId={SectionId.Skills} title="Skills">
-    <dl className="space-y-4">
+    <dl className="border-t border-ink/10">
       {skills.map(({name, skills: items}) => (
-        <div className="grid gap-x-8 gap-y-1 sm:grid-cols-[10rem_1fr]" key={name}>
-          <dt className="text-sm font-medium text-zinc-900">{name}</dt>
-          <dd className="text-sm text-zinc-600">{items.join(' · ')}</dd>
+        <div className="grid gap-x-8 gap-y-1 border-b border-ink/10 py-4 sm:grid-cols-[10.5rem_1fr]" key={name}>
+          <dt className="font-display text-base font-semibold text-ink">{name}</dt>
+          <dd className="text-[0.9375rem] leading-relaxed text-ink-soft">{items.join(', ')}</dd>
         </div>
       ))}
     </dl>

@@ -10,17 +10,17 @@ const links: {id: SectionId; label: string}[] = [
 ];
 
 const Header: FC = memo(() => (
-  <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur">
-    <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3 sm:px-6">
+  <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/85 backdrop-blur">
+    <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3.5 sm:px-6">
       <a
-        className="whitespace-nowrap rounded-md text-sm font-semibold text-zinc-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+        className="whitespace-nowrap rounded-md font-display text-base font-bold tracking-tight text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
         href={`#${SectionId.Hero}`}>
         Hung-Ta Chen
       </a>
-      <nav aria-label="Primary" className="flex gap-x-3 text-sm sm:gap-x-6">
+      <nav aria-label="Primary" className="flex gap-x-3 text-sm sm:gap-x-7">
         {links.map(({id, label}) => (
           <a
-            className="rounded-md text-zinc-600 transition-colors hover:text-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+            className="rounded-md text-ink-soft underline decoration-transparent decoration-2 underline-offset-[6px] transition-colors hover:text-ink hover:decoration-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             href={`#${id}`}
             key={id}>
             {label}

@@ -1,34 +1,46 @@
-import {ArrowDownTrayIcon} from '@heroicons/react/24/outline';
-import classNames from 'classnames';
+import Image from 'next/image';
 import {FC, memo} from 'react';
 
 import {heroData, SectionId} from '../../data/data';
+import profilePic from '../../images/profilepic.jpg';
+import Contours from '../Contours';
 import Socials from '../Socials';
 
 const Hero: FC = memo(() => {
   const {name, role, summary, actions} = heroData;
   return (
-    <section className="pb-12 pt-16 sm:pb-16 sm:pt-24" id={SectionId.Hero}>
-      <p className="text-sm font-medium text-indigo-600">{role}</p>
-      <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-6xl">{name}</h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">{summary}</p>
-      <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-4">
-        {actions.map(({href, text, primary}) => (
-          <a
-            className={classNames(
-              'inline-flex items-center gap-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2',
-              primary
-                ? 'bg-zinc-900 text-white hover:bg-zinc-700'
-                : 'border border-zinc-300 text-zinc-800 hover:border-zinc-400 hover:bg-zinc-100',
-            )}
-            href={href}
-            key={text}>
-            {text}
-            {primary && <ArrowDownTrayIcon className="h-4 w-4" />}
-          </a>
-        ))}
-        <div className="flex items-center gap-x-1">
-          <Socials />
+    <section className="grid items-center overflow-x-clip gap-x-8 gap-y-12 pb-16 pt-14 sm:pt-20 lg:grid-cols-[1.15fr_1fr] lg:pb-24" id={SectionId.Hero}>
+      <div>
+        <h1 className="font-display text-5xl font-bold leading-[1.02] tracking-tight text-ink sm:text-7xl">{name}</h1>
+        <p className="mt-4 font-display text-xl font-medium text-ink-soft sm:text-2xl">{role}</p>
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">{summary}</p>
+        <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-4">
+          {actions.map(({href, text}) => (
+            <a
+              className="inline-flex items-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+              href={href}
+              key={text}>
+              {text}
+            </a>
+          ))}
+          <div className="flex items-center gap-x-1">
+            <Socials />
+          </div>
+        </div>
+      </div>
+
+      <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
+        <Contours className="pointer-events-none absolute -inset-[22%] h-[144%] w-[144%]" />
+        <div className="relative mx-auto aspect-[4/5] w-[68%]">
+          <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] border border-gold sm:translate-x-4 sm:translate-y-4" />
+          <Image
+            alt="Portrait of Hung-Ta Chen"
+            className="relative h-full w-full rounded-[2rem] object-cover object-[28%_30%] shadow-xl shadow-ink/10"
+            placeholder="blur"
+            priority
+            sizes="(min-width: 1024px) 24rem, 70vw"
+            src={profilePic}
+          />
         </div>
       </div>
     </section>

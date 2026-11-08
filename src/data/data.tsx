@@ -32,12 +32,12 @@ export const heroData: HeroData = {
   name: 'Hung-Ta Chen',
   role: 'Software Development Engineer at Amazon',
   summary:
-    "I'm a software engineer in Amazon Stores, on the Seller Fees team within Selling Partner Services, where I build LLM-powered fee explanations for sellers. " +
+    "I'm a software engineer in Amazon Stores, on the Seller Fees team within Selling Partner Services, where I build LLM-powered fee explanations and an AI fee agent for sellers. " +
     'I have an M.S. in Statistics from UC Davis and a background in electrical and computer engineering, ' +
     'so I like work where backend engineering meets data and machine learning. Based in Seattle.',
   actions: [
-    {href: '/assets/Hungta-Resume.pdf', text: 'Download resume', primary: true},
-    {href: `#${SectionId.Contact}`, text: 'Get in touch'},
+    // Resume download is hidden until the new PDF is ready: {href: '/assets/Hungta-Resume.pdf', text: 'Download resume'}
+    {href: `#${SectionId.Contact}`, text: 'Get in touch', primary: true},
   ],
 };
 
@@ -195,7 +195,7 @@ export const skills: SkillGroup[] = [
 
 export const contact: ContactData = {
   headerText: "Let's talk",
-  description: 'Open to interesting problems and good conversations. Email is the best way to reach me.',
+  description: 'Open to interesting problems and good conversations. Send a message here or email me directly.',
   email: 'hungtachen0121@gmail.com',
 };
 

@@ -6,26 +6,22 @@ import Section from '../Layout/Section';
 
 const Projects: FC = memo(() => (
   <Section sectionId={SectionId.Projects} title="Selected projects">
-    <ul className="grid gap-4 sm:grid-cols-2">
+    <ul className="border-t border-ink/10">
       {projects.map(({title, description, url, tags}) => (
-        <li key={title}>
+        <li className="border-b border-ink/10" key={title}>
           <a
-            className="group flex h-full flex-col rounded-xl border border-zinc-200 p-5 transition-colors hover:border-indigo-300 hover:bg-indigo-50/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600"
+            className="group grid items-baseline gap-x-8 gap-y-2 py-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold sm:grid-cols-[1fr_1.4fr_auto]"
             href={url}
             rel="noopener noreferrer"
             target="_blank">
-            <div className="flex items-start justify-between gap-x-2">
-              <h3 className="text-base font-semibold text-zinc-900">{title}</h3>
-              <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-zinc-400 transition-colors group-hover:text-indigo-600" />
+            <h3 className="font-display text-xl font-semibold text-ink underline decoration-transparent decoration-2 underline-offset-[6px] transition-colors group-hover:decoration-gold">
+              {title}
+            </h3>
+            <div>
+              <p className="text-[0.9375rem] leading-relaxed text-ink-soft">{description}</p>
+              <p className="mt-1.5 text-sm text-ink-soft/80">{tags.join(', ')}</p>
             </div>
-            <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600">{description}</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {tags.map(tag => (
-                <span className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs text-zinc-600" key={tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <ArrowUpRightIcon className="hidden h-5 w-5 text-ink-soft transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink sm:block" />
           </a>
         </li>
       ))}

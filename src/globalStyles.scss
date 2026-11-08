@@ -34,9 +34,39 @@ html {
 body {
   position: relative;
   width: 100%;
-  color: #3f3f46;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif;
-  background-color: #ffffff;
+  color: #101b33;
+  font-family: 'Geist Variable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f6f7f9;
+}
+
+::selection {
+  color: #101b33;
+  background: #f2d9a0;
+}
+
+/* Hero contour lines draw in once on load. */
+.contour path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: contour-draw 2.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation-delay: calc(var(--i) * 70ms);
+}
+
+@keyframes contour-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .contour path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
 }
 
 td,
