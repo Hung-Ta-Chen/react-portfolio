@@ -71,7 +71,7 @@ const Experience: FC = memo(() => (
     <h3 className="mb-8 mt-16 font-display text-2xl font-bold tracking-tight text-ink">Education</h3>
     <ul>
       {education.map(({school, degree, date, location}) => (
-        <TimelineEntry compact date={date} key={school} location={location} moving={false}>
+        <TimelineEntry compact date={date} key={school} location={location}>
           <h4 className="font-display text-lg font-semibold text-ink">{school}</h4>
           <p className="text-[0.9375rem] text-ink-soft">{degree}</p>
         </TimelineEntry>
