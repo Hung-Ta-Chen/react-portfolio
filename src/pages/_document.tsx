@@ -15,7 +15,7 @@ export default function Document() {
           - https://bugs.chromium.org/p/chromium/issues/detail?id=872770 */}
         <meta content="notranslate" name="google" />
         <noscript>
-          <style>{`.tl-date,.tl-dot,.tl-body>*,.tl-tags span{opacity:1!important;transform:none!important}.tl-fill{transform:none}.tl-marker{display:none}`}</style>
+          <style>{`.tl-date,.tl-dot,.tl-body>*,.tl-tags span{opacity:1!important;transform:none!important}.tl-marker{display:none}`}</style>
         </noscript>
       </Head>
       <body className="bg-white">
