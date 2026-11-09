@@ -7,9 +7,17 @@ const Skills: FC = memo(() => (
   <Section sectionId={SectionId.Skills} title="Skills">
     <dl className="border-t border-ink/10">
       {skills.map(({name, skills: items}) => (
-        <div className="grid gap-x-8 gap-y-1 border-b border-ink/10 py-4 sm:grid-cols-[10.5rem_1fr]" key={name}>
+        <div className="grid gap-x-10 gap-y-3 border-b border-ink/10 py-5 sm:grid-cols-[10.5rem_1fr]" key={name}>
           <dt className="font-display text-base font-semibold text-ink">{name}</dt>
-          <dd className="text-[0.9375rem] leading-relaxed text-ink-soft">{items.join(', ')}</dd>
+          <dd>
+            <ul className="flex flex-wrap gap-2">
+              {items.map(item => (
+                <li className="rounded-full border border-ink/15 bg-white px-3 py-1 text-sm text-ink-soft" key={item}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </dd>
         </div>
       ))}
     </dl>

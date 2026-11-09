@@ -1,3 +1,4 @@
+import {ArrowUpRightIcon} from '@heroicons/react/24/outline';
 import {FC, memo} from 'react';
 
 import {education, experience, SectionId} from '../../data/data';
@@ -8,7 +9,7 @@ const bulletList = 'list-disc space-y-2.5 pl-5 text-[0.9375rem] leading-relaxed 
 const Experience: FC = memo(() => (
   <Section sectionId={SectionId.Experience} title="Experience">
     <ol>
-      {experience.map(({company, title, date, location, bullets, groups, tags}) => (
+      {experience.map(({company, url, note, title, date, location, bullets, groups, tags}) => (
         <li className="grid gap-x-10 sm:grid-cols-[10.5rem_1fr]" key={`${company}-${date}`}>
           <div className="pb-3 text-sm text-ink-soft sm:pb-0 sm:pt-1 sm:text-right">
             <p className="font-medium text-ink">{date}</p>
@@ -16,12 +17,38 @@ const Experience: FC = memo(() => (
           </div>
           <div className="relative border-l border-ink/15 pb-14 pl-7 [li:last-child>&]:pb-0 sm:pl-9">
             <span className="absolute -left-[6px] top-2 h-[11px] w-[11px] rounded-full border-2 border-gold bg-paper" />
-            <h3 className="font-display text-2xl font-bold tracking-tight text-ink">{company}</h3>
+            <h3 className="flex flex-wrap items-baseline gap-x-3 font-display text-2xl font-bold tracking-tight text-ink">
+              {url ? (
+                <a
+                  className="group inline-flex items-center gap-x-1 rounded-md underline decoration-gold decoration-2 underline-offset-[6px] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  href={url}
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  {company}
+                  <ArrowUpRightIcon className="h-4 w-4 text-ink-soft transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              ) : (
+                company
+              )}
+              {note && <span className="font-sans text-sm font-normal tracking-normal text-ink-soft">{note}</span>}
+            </h3>
             <p className="mt-0.5 text-[0.9375rem] text-ink-soft">{title}</p>
             {bullets.length > 0 && <ul className={`mt-4 ${bulletList}`}>{bullets.map(b => <li key={b}>{b}</li>)}</ul>}
             {groups?.map(group => (
               <div className="mt-6" key={group.heading}>
-                <h4 className="font-display text-lg font-semibold text-ink">{group.heading}</h4>
+                <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                  <h4 className="font-display text-lg font-semibold text-ink">{group.heading}</h4>
+                  {group.link && (
+                    <a
+                      className="group inline-flex items-center gap-x-1 rounded-md text-sm text-ink underline decoration-gold decoration-2 underline-offset-[5px] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                      href={group.link.href}
+                      rel="noopener noreferrer"
+                      target="_blank">
+                      {group.link.text}
+                      <ArrowUpRightIcon className="h-3.5 w-3.5 text-ink-soft transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  )}
+                </div>
                 {group.summary && <p className="mt-1 text-[0.9375rem] leading-relaxed text-ink-soft">{group.summary}</p>}
                 <ul className={`mt-3 ${bulletList}`}>
                   {group.bullets.map(({label, text}) => (

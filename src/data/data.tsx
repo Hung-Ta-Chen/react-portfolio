@@ -52,6 +52,10 @@ export const experience: ExperienceItem[] = [
     groups: [
       {
         heading: 'LLM Fee Explainer',
+        link: {
+          text: 'Fee Explainer Introduction',
+          href: 'https://sellercentral.amazon.com/help/hub/reference/external/G201822160',
+        },
         summary:
           'Turns a seller’s fee charge into a plain-language explanation across Manage Your Payments, Revenue Calculator and Seller Assistant. It serves ~625K explanations a day, with 38 fee types live across 29 marketplaces. I own it end to end:',
         bullets: [
@@ -75,6 +79,10 @@ export const experience: ExperienceItem[] = [
       },
       {
         heading: 'Fee Agent',
+        link: {
+          text: 'About Seller Assistant',
+          href: 'https://sellercentral.amazon.com/help/hub/reference/external/GLYJTRGQCYNYAZS9?locale=en-US',
+        },
         summary: 'An AI assistant that answers sellers’ fee questions. I own its model and experiment stack:',
         bullets: [
           {
@@ -101,6 +109,8 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: 'Cielara AI',
+    url: 'https://www.causaldynamics.com/',
+    note: 'now Causal Dynamics Lab',
     title: 'Software Engineer',
     date: 'Oct 2024 – Nov 2024',
     location: 'Remote (San Francisco, CA)',
@@ -112,6 +122,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: 'Legion AI',
+    url: 'https://www.thelegionai.com/',
     title: 'Software Engineer Intern',
     date: 'May 2024 – Aug 2024',
     location: 'Remote (New York, NY)',
@@ -147,51 +158,22 @@ export const education: EducationItem[] = [
 export const projects: ProjectItem[] = [
   {
     title: 'Accessify',
-    description: 'Interactive map that crowdsources accessibility information for places.',
+    description:
+      'Map-based app for finding places by their accessibility. Search and filter places, read and submit reviews, and get AI-generated summaries of what reviews say about accessibility, plus a chatbot for local-services questions.',
     url: 'https://github.com/Hung-Ta-Chen/Accessify',
-    tags: ['React', 'Flask', 'PostgreSQL'],
-  },
-  {
-    title: 'UFC Playground',
-    description: 'UFC stats and fight-prediction platform, deployed on AWS.',
-    url: 'https://github.com/Hung-Ta-Chen/UFC-Playground-Backend',
-    tags: ['React', 'Django', 'AWS'],
-  },
-  {
-    title: 'Kitchen Companion',
-    description: 'Food-management API that helps reduce food waste, using Clarifai image recognition.',
-    url: 'https://github.com/Hung-Ta-Chen/KitchenCompanion-API',
-    tags: ['Django', 'REST', 'Clarifai'],
-  },
-  {
-    title: 'Real-Time UAV Object Detection',
-    description: 'Real-time object detection pipeline for drone footage built on YOLOv5.',
-    url: 'https://github.com/Hung-Ta-Chen/UAV-object-detection-with-YOLO',
-    tags: ['PyTorch', 'YOLOv5', 'Computer Vision'],
-  },
-  {
-    title: 'Coding Problem Classifier',
-    description: 'BERT-based model that classifies coding problems by topic.',
-    url: 'https://github.com/Hung-Ta-Chen/AI-Powered-Coding-Problem-Classifier',
-    tags: ['PyTorch', 'BERT', 'NLP'],
-  },
-  {
-    title: 'Russian–English Translation',
-    description: 'Encoder-decoder Transformer with multi-head attention, implemented in PyTorch.',
-    url: 'https://www.kaggle.com/code/hungtachen/russian-to-english-with-encoder-decoder-mha',
-    tags: ['PyTorch', 'Transformers', 'NLP'],
+    tags: ['React', 'Flask', 'PostgreSQL', 'MongoDB', 'OpenAI API', 'Google Maps'],
   },
 ];
 
 export const skills: SkillGroup[] = [
-  {name: 'Languages', skills: ['Java', 'Python', 'TypeScript', 'JavaScript', 'SQL']},
-  {name: 'Backend', skills: ['Django', 'Flask', 'FastAPI', 'NestJS']},
-  {name: 'Data & Cloud', skills: ['AWS (Lambda, ECS, Step Functions, DynamoDB, CDK)', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis']},
-  {name: 'Frontend', skills: ['React', 'Next.js', 'Tailwind CSS']},
   {
-    name: 'ML & AI',
-    skills: ['Amazon Bedrock', 'LangGraph', 'LlamaIndex', 'LangChain', 'MCP', 'PyTorch', 'scikit-learn'],
+    name: 'AI & LLM',
+    skills: ['Amazon Bedrock', 'LangGraph', 'LangChain', 'LlamaIndex', 'MCP', 'PyTorch', 'scikit-learn'],
   },
+  {name: 'Cloud', skills: ['AWS', 'Lambda', 'ECS', 'Step Functions', 'S3', 'Aurora', 'CDK', 'Docker']},
+  {name: 'Data', skills: ['DynamoDB', 'PostgreSQL', 'Redis', 'Elasticsearch', 'Spark', 'SQL']},
+  {name: 'Backend', skills: ['Java', 'Spring Boot', 'Python', 'Flask', 'Django', 'Go', 'Scala', 'Node.js']},
+  {name: 'Frontend', skills: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS']},
 ];
 
 export const contact: ContactData = {
