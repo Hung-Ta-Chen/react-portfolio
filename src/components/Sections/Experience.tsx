@@ -69,18 +69,12 @@ const Experience: FC = memo(() => (
     </ol>
 
     <h3 className="mb-8 mt-16 font-display text-2xl font-bold tracking-tight text-ink">Education</h3>
-    <ul className="space-y-7">
+    <ul>
       {education.map(({school, degree, date, location}) => (
-        <li className="grid gap-x-10 gap-y-1 sm:grid-cols-[10.5rem_1fr]" key={school}>
-          <div className="text-sm text-ink-soft sm:text-right">
-            <p className="font-medium text-ink">{date}</p>
-            <p>{location}</p>
-          </div>
-          <div className="sm:pl-[2.3rem]">
-            <h4 className="font-display text-lg font-semibold text-ink">{school}</h4>
-            <p className="text-[0.9375rem] text-ink-soft">{degree}</p>
-          </div>
-        </li>
+        <TimelineEntry compact date={date} key={school} location={location}>
+          <h4 className="font-display text-lg font-semibold text-ink">{school}</h4>
+          <p className="text-[0.9375rem] text-ink-soft">{degree}</p>
+        </TimelineEntry>
       ))}
     </ul>
   </Section>
