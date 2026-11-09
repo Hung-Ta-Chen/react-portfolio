@@ -59,7 +59,43 @@ body {
   }
 }
 
+/* Scroll reveal: fades and lifts in once. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Card banner contours draw in when their card is revealed. */
+.banner-contour path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.is-visible .banner-contour path {
+  animation: contour-draw 2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation-delay: calc(var(--i) * 60ms);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .banner-contour path {
+    animation: none !important;
+    stroke-dashoffset: 0;
+  }
+
   html {
     scroll-behavior: auto;
   }

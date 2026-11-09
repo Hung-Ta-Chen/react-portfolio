@@ -14,6 +14,9 @@ export default function Document() {
           - https://github.com/facebook/react/issues/11538
           - https://bugs.chromium.org/p/chromium/issues/detail?id=872770 */}
         <meta content="notranslate" name="google" />
+        <noscript>
+          <style>{`.reveal{opacity:1;transform:none}.banner-contour path{stroke-dashoffset:0}`}</style>
+        </noscript>
       </Head>
       <body className="bg-white">
         <Main />

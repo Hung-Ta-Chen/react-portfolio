@@ -45,6 +45,11 @@ export const heroData: HeroData = {
 export const experience: ExperienceItem[] = [
   {
     company: 'Amazon',
+    stats: [
+      {value: 625, prefix: '~', suffix: 'K', label: 'explanations a day'},
+      {value: 38, label: 'fee types live'},
+      {value: 517, label: 'fee changes shipped hands-off'},
+    ],
     title: 'Software Development Engineer, Stores – Selling Partner Services (Seller Fees)',
     date: 'Dec 2024 – Present',
     location: 'Seattle, WA',

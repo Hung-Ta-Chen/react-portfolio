@@ -1,3 +1,4 @@
+import {StaticImageData} from 'next/image';
 import {FC, ForwardRefExoticComponent, SVGProps} from 'react';
 
 import {IconProps} from '../components/Icon/Icon';
@@ -26,8 +27,18 @@ export interface BulletGroup {
   bullets: BulletPoint[];
 }
 
+export interface ExperienceStat {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+}
+
 export interface ExperienceItem {
   company: string;
+  /** Optional banner picture (e.g. a product screenshot). Falls back to generated contour art. */
+  image?: string | StaticImageData;
+  stats?: ExperienceStat[];
   url?: string;
   note?: string;
   title: string;
