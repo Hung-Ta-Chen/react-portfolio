@@ -184,14 +184,14 @@ export const projects: ProjectItem[] = [
 ];
 
 export const skills: SkillGroup[] = [
-  {name: 'Languages', skills: ['Java', 'Python', 'TypeScript', 'JavaScript', 'SQL']},
-  {name: 'Backend', skills: ['Django', 'Flask', 'FastAPI', 'NestJS']},
-  {name: 'Data & Cloud', skills: ['AWS (Lambda, ECS, Step Functions, DynamoDB, CDK)', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis']},
-  {name: 'Frontend', skills: ['React', 'Next.js', 'Tailwind CSS']},
   {
-    name: 'ML & AI',
-    skills: ['Amazon Bedrock', 'LangGraph', 'LlamaIndex', 'LangChain', 'MCP', 'PyTorch', 'scikit-learn'],
+    name: 'AI & LLM',
+    skills: ['Amazon Bedrock', 'LangGraph', 'LangChain', 'LlamaIndex', 'MCP', 'PyTorch', 'scikit-learn'],
   },
+  {name: 'Cloud', skills: ['AWS', 'Lambda', 'ECS', 'Step Functions', 'S3', 'Aurora', 'CDK', 'Docker']},
+  {name: 'Data', skills: ['DynamoDB', 'PostgreSQL', 'Redis', 'Elasticsearch', 'Spark', 'SQL']},
+  {name: 'Backend', skills: ['Java', 'Spring Boot', 'Python', 'Flask', 'Django', 'Go', 'Scala', 'Node.js']},
+  {name: 'Frontend', skills: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS']},
 ];
 
 export const contact: ContactData = {
