@@ -6,6 +6,7 @@ import {
   ExperienceItem,
   HeroData,
   HomepageMeta,
+  ProjectItem,
   SkillGroup,
   Social,
 } from './dataDef';
@@ -20,6 +21,7 @@ export const homePageMeta: HomepageMeta = {
 export const SectionId = {
   Hero: 'hero',
   Experience: 'experience',
+  Projects: 'projects',
   Skills: 'skills',
   Contact: 'contact',
 } as const;
@@ -139,6 +141,16 @@ export const education: EducationItem[] = [
     degree: 'B.S. Biochemical Science & Technology',
     date: 'Sep 2017 – Jun 2019',
     location: 'Taipei, Taiwan',
+  },
+];
+
+export const projects: ProjectItem[] = [
+  {
+    title: 'Accessify',
+    description:
+      'Map-based app for finding places by their accessibility. Search and filter places, read and submit reviews, and get AI-generated summaries of what reviews say about accessibility, plus a chatbot for local-services questions.',
+    url: 'https://github.com/Hung-Ta-Chen/Accessify',
+    tags: ['React', 'Flask', 'PostgreSQL', 'MongoDB', 'OpenAI API', 'Google Maps'],
   },
 ];
 

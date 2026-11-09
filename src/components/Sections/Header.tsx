@@ -4,6 +4,7 @@ import {SectionId} from '../../data/data';
 
 const links: {id: SectionId; label: string}[] = [
   {id: SectionId.Experience, label: 'Experience'},
+  {id: SectionId.Projects, label: 'Projects'},
   {id: SectionId.Skills, label: 'Skills'},
   {id: SectionId.Contact, label: 'Contact'},
 ];

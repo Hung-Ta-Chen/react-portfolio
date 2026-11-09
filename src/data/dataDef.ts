@@ -42,6 +42,13 @@ export interface EducationItem {
   location: string;
 }
 
+export interface ProjectItem {
+  title: string;
+  description: string;
+  url: string;
+  tags: string[];
+}
+
 export interface SkillGroup {
   name: string;
   skills: string[];
