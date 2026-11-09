@@ -59,7 +59,101 @@ body {
   }
 }
 
+/* Experience timeline: line fills with scroll, a gold marker rides its tip, entries fade up in sequence. */
+.tl-date {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tl-fill {
+  transform: scaleY(var(--fill, 0));
+  transform-origin: top;
+  will-change: transform;
+}
+
+.tl-marker {
+  top: calc(var(--fill, 0) * 100%);
+  opacity: 0;
+  pointer-events: none;
+  animation: tl-pulse 1.6s ease-out infinite;
+}
+
+.tl-body[style*='--fill'] .tl-marker {
+  opacity: 1;
+}
+
+.tl-dot {
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s;
+}
+
+.tl-body > :not(.tl-line):not(.tl-fill):not(.tl-dot):not(.tl-marker) {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@for $i from 1 through 12 {
+  .tl-body > :nth-child(#{$i + 4}) {
+    transition-delay: #{0.15 + $i * 0.09}s;
+  }
+}
+
+.tl-item.is-visible {
+  .tl-date {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tl-dot {
+    transform: none;
+  }
+
+  .tl-body > :not(.tl-line):not(.tl-fill):not(.tl-dot):not(.tl-marker) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.tl-tags span {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.4s ease 0.9s, transform 0.4s ease 0.9s;
+}
+
+.tl-item.is-visible .tl-tags span {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes tl-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(217, 164, 65, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(217, 164, 65, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .tl-date,
+  .tl-dot,
+  .tl-body > *,
+  .tl-tags span {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .tl-fill {
+    transform: none;
+  }
+
+  .tl-marker {
+    display: none;
+  }
+
   html {
     scroll-behavior: auto;
   }
