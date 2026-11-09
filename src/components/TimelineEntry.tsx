@@ -24,8 +24,8 @@ const TimelineEntry: FC<PropsWithChildren<TimelineEntryProps>> = memo(({date, lo
       </div>
       <div className="tl-body relative pb-14 pl-7 [li:last-child>&]:pb-0 sm:pl-9" ref={bodyRef}>
         <span className="tl-line absolute left-0 top-0 h-full w-px bg-ink/15" />
-        <span className="tl-fill absolute left-0 top-0 h-full w-px bg-gold" />
-        <span className="tl-marker absolute -left-[5px] top-0 h-[11px] w-[11px] rounded-full bg-gold" />
+        <span className="tl-fill absolute left-0 w-px bg-gold" />
+        <span className="tl-marker absolute -left-[5px] h-[11px] w-[11px] rounded-full bg-gold" />
         <span className="tl-dot absolute -left-[6px] top-2 h-[11px] w-[11px] rounded-full border-2 border-gold bg-paper" />
         {children}
       </div>
