@@ -6,7 +6,6 @@ import {
   ExperienceItem,
   HeroData,
   HomepageMeta,
-  ProjectItem,
   SkillGroup,
   Social,
 } from './dataDef';
@@ -21,7 +20,6 @@ export const homePageMeta: HomepageMeta = {
 export const SectionId = {
   Hero: 'hero',
   Experience: 'experience',
-  Projects: 'projects',
   Skills: 'skills',
   Contact: 'contact',
 } as const;
@@ -141,45 +139,6 @@ export const education: EducationItem[] = [
     degree: 'B.S. Biochemical Science & Technology',
     date: 'Sep 2017 – Jun 2019',
     location: 'Taipei, Taiwan',
-  },
-];
-
-export const projects: ProjectItem[] = [
-  {
-    title: 'Accessify',
-    description: 'Interactive map that crowdsources accessibility information for places.',
-    url: 'https://github.com/Hung-Ta-Chen/Accessify',
-    tags: ['React', 'Flask', 'PostgreSQL'],
-  },
-  {
-    title: 'UFC Playground',
-    description: 'UFC stats and fight-prediction platform, deployed on AWS.',
-    url: 'https://github.com/Hung-Ta-Chen/UFC-Playground-Backend',
-    tags: ['React', 'Django', 'AWS'],
-  },
-  {
-    title: 'Kitchen Companion',
-    description: 'Food-management API that helps reduce food waste, using Clarifai image recognition.',
-    url: 'https://github.com/Hung-Ta-Chen/KitchenCompanion-API',
-    tags: ['Django', 'REST', 'Clarifai'],
-  },
-  {
-    title: 'Real-Time UAV Object Detection',
-    description: 'Real-time object detection pipeline for drone footage built on YOLOv5.',
-    url: 'https://github.com/Hung-Ta-Chen/UAV-object-detection-with-YOLO',
-    tags: ['PyTorch', 'YOLOv5', 'Computer Vision'],
-  },
-  {
-    title: 'Coding Problem Classifier',
-    description: 'BERT-based model that classifies coding problems by topic.',
-    url: 'https://github.com/Hung-Ta-Chen/AI-Powered-Coding-Problem-Classifier',
-    tags: ['PyTorch', 'BERT', 'NLP'],
-  },
-  {
-    title: 'Russian–English Translation',
-    description: 'Encoder-decoder Transformer with multi-head attention, implemented in PyTorch.',
-    url: 'https://www.kaggle.com/code/hungtachen/russian-to-english-with-encoder-decoder-mha',
-    tags: ['PyTorch', 'Transformers', 'NLP'],
   },
 ];
 

@@ -6,7 +6,6 @@ import Experience from '../components/Sections/Experience';
 import Footer from '../components/Sections/Footer';
 import Header from '../components/Sections/Header';
 import Hero from '../components/Sections/Hero';
-import Projects from '../components/Sections/Projects';
 import Skills from '../components/Sections/Skills';
 import {homePageMeta} from '../data/data';
 
@@ -18,7 +17,6 @@ const Home: FC = memo(() => {
       <main className="mx-auto max-w-5xl px-4 sm:px-6">
         <Hero />
         <Experience />
-        <Projects />
         <Skills />
         <Contact />
         <Footer />
