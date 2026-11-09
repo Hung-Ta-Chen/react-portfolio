@@ -52,6 +52,10 @@ export const experience: ExperienceItem[] = [
     groups: [
       {
         heading: 'LLM Fee Explainer',
+        link: {
+          text: 'Fee Explainer Introduction',
+          href: 'https://sellercentral.amazon.com/help/hub/reference/external/G201822160',
+        },
         summary:
           'Turns a seller’s fee charge into a plain-language explanation across Manage Your Payments, Revenue Calculator and Seller Assistant. It serves ~625K explanations a day, with 38 fee types live across 29 marketplaces. I own it end to end:',
         bullets: [
@@ -75,6 +79,10 @@ export const experience: ExperienceItem[] = [
       },
       {
         heading: 'Fee Agent',
+        link: {
+          text: 'About Seller Assistant',
+          href: 'https://sellercentral.amazon.com/help/hub/reference/external/GLYJTRGQCYNYAZS9?locale=en-US',
+        },
         summary: 'An AI assistant that answers sellers’ fee questions. I own its model and experiment stack:',
         bullets: [
           {
@@ -101,6 +109,8 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: 'Cielara AI',
+    url: 'https://www.causaldynamics.com/',
+    note: 'now Causal Dynamics Lab',
     title: 'Software Engineer',
     date: 'Oct 2024 – Nov 2024',
     location: 'Remote (San Francisco, CA)',
@@ -112,6 +122,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: 'Legion AI',
+    url: 'https://www.thelegionai.com/',
     title: 'Software Engineer Intern',
     date: 'May 2024 – Aug 2024',
     location: 'Remote (New York, NY)',

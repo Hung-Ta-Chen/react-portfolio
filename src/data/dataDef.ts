@@ -21,12 +21,15 @@ export interface BulletPoint {
 
 export interface BulletGroup {
   heading: string;
+  link?: {text: string; href: string};
   summary?: string;
   bullets: BulletPoint[];
 }
 
 export interface ExperienceItem {
   company: string;
+  url?: string;
+  note?: string;
   title: string;
   date: string;
   location: string;
