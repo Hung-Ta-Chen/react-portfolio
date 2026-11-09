@@ -4,12 +4,12 @@ import {RefObject, useEffect, useRef} from 'react';
  * Writes a 0..1 value to the element's `--fill` CSS variable that follows how far the page has been
  * scrolled through it, and sets `data-active` while that value is strictly between 0 and 1. Updates the DOM directly so scrolling never triggers a React re-render.
  */
-const useScrollFill = <T extends HTMLElement>(): RefObject<T> => {
+const useScrollFill = <T extends HTMLElement>(enabled = true): RefObject<T> => {
   const ref = useRef<T>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return undefined;
+    if (!el || !enabled) return undefined;
     let frame = 0;
 
     const update = () => {
@@ -32,7 +32,7 @@ const useScrollFill = <T extends HTMLElement>(): RefObject<T> => {
       window.removeEventListener('resize', onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [enabled]);
 
   return ref;
 };
