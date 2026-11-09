@@ -82,7 +82,7 @@ body {
   transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s;
 }
 
-.tl-body > :not(.tl-line):not(.tl-dot):not(.tl-marker) {
+.tl-body > :not(.tl-dot):not(.tl-marker) {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -104,7 +104,7 @@ body {
     transform: none;
   }
 
-  .tl-body > :not(.tl-line):not(.tl-dot):not(.tl-marker) {
+  .tl-body > :not(.tl-dot):not(.tl-marker) {
     opacity: 1;
     transform: none;
   }
