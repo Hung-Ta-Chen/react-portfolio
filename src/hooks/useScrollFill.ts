@@ -9,7 +9,7 @@ const useScrollFill = <T extends HTMLElement>(): RefObject<T> => {
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el) return undefined;
     let frame = 0;
 
     const update = () => {

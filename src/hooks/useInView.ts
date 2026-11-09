@@ -7,10 +7,10 @@ const useInView = <T extends HTMLElement>(threshold = 0.12): [RefObject<T>, bool
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el) return undefined;
     if (typeof IntersectionObserver === 'undefined') {
       setInView(true);
-      return;
+      return undefined;
     }
     const observer = new IntersectionObserver(
       ([entry]) => {
